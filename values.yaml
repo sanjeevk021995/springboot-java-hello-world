@@ -1,0 +1,8 @@
+serverFiles:
+  prometheus.yml:
+    scrape_configs:
+      - job_name: 'hello-app'
+        metrics_path: '/actuator/prometheus'
+        static_configs:
+          - targets:
+            - hello-service.demo.svc.cluster.local:80
