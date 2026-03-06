@@ -66,6 +66,9 @@ spec:
   - name: docker-config
     secret:
       secretName: dockerhub-secret
+      items:
+        - key: .dockerconfig.json
+          path: config.json
   - name: maven-cache
     persistentVolumeClaim:
       claimName: maven-cache-pvc
