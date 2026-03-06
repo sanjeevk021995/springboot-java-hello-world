@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: yourdockerhub/springboot-demo
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
