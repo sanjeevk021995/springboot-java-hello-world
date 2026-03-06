@@ -10,3 +10,4 @@ spec:
     requests:
       storage: 2Gi
   volumeName: maven-cache-pv
+  storageClassName: ""
