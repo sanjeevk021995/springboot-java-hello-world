@@ -16,7 +16,9 @@ spec:
       limits:
         memory: "356Mi"
         cpu: "200m"
-
+    volumeMounts:
+      - name: maven-cache
+        mountPath: /root/.m2
   - name: kubectl
     image: bitnami/kubectl
     command:
@@ -64,3 +66,6 @@ spec:
   - name: docker-config
     secret:
       secretName: dockerhub-secret
+  - name: maven-cache
+    persistentVolumeClaim:
+      claimName: maven-cache-pvc
