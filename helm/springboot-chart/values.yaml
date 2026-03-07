@@ -1,9 +1,12 @@
 replicaCount: 1
 
 image:
-  repository: yourdockerhub/springboot-demo
-  tag: latest
+  repository: docker.io/sanjeevk95/springboot-demo
+  tag: 47
   pullPolicy: Always
+
+imagePullSecrets:
+  - name: dockerhub-secret
 
 service:
   type: ClusterIP

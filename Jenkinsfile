@@ -17,13 +17,13 @@ environment {
   }
   stages {
 
-    stage('Test Maven') {
-      steps {
-        container('maven') {
-          sh 'mvn clean package -DskipTests'
-        }
-      }
-    }
+    // stage('Test Maven') {
+    //   steps {
+    //     container('maven') {
+    //       sh 'mvn clean package -DskipTests'
+    //     }
+    //   }
+    // }
 
     // stage('Test Kubectl') {
     //   steps {
@@ -33,23 +33,28 @@ environment {
     //   }
     // }
 
-    // stage('Test Helm') {
+
+    // stage('Test kaniko') {
     //   steps {
-    //     container('helm') {
-    //       sh 'helm version'
+    //     container('kaniko') {
+    //       sh '''
+    //       /kaniko/executor \
+    //       --context $WORKSPACE \
+    //       --dockerfile $WORKSPACE/Dockerfile \
+    //       --destination=$DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG 
+
+    //       echo " image pushed to dockerhub successfully"
+    //       '''
     //     }
     //   }
     // }
-    stage('Test kaniko') {
+    stage('Test Helm') {
       steps {
-        container('kaniko') {
+        container('helm') {
           sh '''
-          /kaniko/executor \
-          --context $WORKSPACE \
-          --dockerfile $WORKSPACE/Dockerfile \
-          --destination=$DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG 
-
-          echo " image pushed to dockerhub successfully"
+          helm upgrade --install springboot-demo ./helm/springboot-chart --namespace demo
+          
+          
           '''
         }
       }
