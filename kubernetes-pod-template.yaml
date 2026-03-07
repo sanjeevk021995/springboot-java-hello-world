@@ -56,7 +56,7 @@ spec:
         memory: "256Mi"
         cpu: "200m"
       limits:
-        memory: "256Mi"
+        memory: "456Mi"
         cpu: "300m"
     volumeMounts:
     - name: docker-config
@@ -72,4 +72,5 @@ spec:
   - name: maven-cache
     persistentVolumeClaim:
       claimName: maven-cache-pvc
+
 
