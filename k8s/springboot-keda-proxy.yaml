@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-demo-proxy
+  namespace: demo
+spec:
+  externalName: keda-add-ons-http-interceptor-proxy.keda.svc.cluster.local:80
+  internalTrafficPolicy: Cluster
+  ports:
+    - port: 80
+      targetPort: 8080   # matches your Deployment container port
+      protocol: TCP
+  selector:
+    app: springboot-demo  # must match the labels on your Deployment pods

@@ -8,6 +8,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
+        Thread.sleep(200);
         return "Hello DevOps Monitoring!";
     }
 }
