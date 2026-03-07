@@ -10,7 +10,7 @@ agent {
 
 environment {
 
-    DOCKER_REPO = "sanjeevk95"
+    DOCKER_REPO = "docker.io/sanjeevk95"
     IMAGE_NAME = "springboot-demo"
     IMAGE_TAG = "${BUILD_NUMBER}"
 
@@ -56,5 +56,6 @@ environment {
     }
 
   }
+
 
 }
