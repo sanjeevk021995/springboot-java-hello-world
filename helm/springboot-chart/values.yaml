@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: docker.io/sanjeevk95/springboot-demo
-  tag: 47
+  tag: 53
   pullPolicy: Always
 
 imagePullSecrets:
