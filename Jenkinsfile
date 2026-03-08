@@ -46,7 +46,7 @@ environment {
           
           
           sh '''
-         helm uninstall springboot-demo -n demo
+         helm uninstall springboot-demo -n demo || true
          sleep 60
          helm upgrade --install springboot-demo ./helm/springboot-chart --namespace demo --set image.repository=docker.io/sanjeevk95/springboot-demo --set image.tag=${BUILD_NUMBER} --force
           '''
