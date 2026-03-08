@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: docker.io/sanjeevk95/springboot-demo
   tag: 53
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 imagePullSecrets:
   - name: dockerhub-secret
@@ -20,4 +20,21 @@ resources:
   requests:
     cpu: 100m
     memory: 256Mi
+
+fluentbit:
+  image: fluent/fluent-bit
+  tag: 2.2
+  resources:
+    limits:
+      cpu: 100m
+      memory: 64Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+
+logVolume:
+  mountPath: /logs
+
+fluentbitConfig:
+  logPath: /logs/app.log
 
