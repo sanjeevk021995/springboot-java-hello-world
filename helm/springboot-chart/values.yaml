@@ -23,7 +23,7 @@ resources:
 
 fluentbit:
   image: fluent/fluent-bit
-  tag: 2.2
+  tag: latest
   resources:
     limits:
       cpu: 100m

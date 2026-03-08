@@ -11,13 +11,13 @@ agent {
 environment {
 
     DOCKER_REPO = "docker.io/sanjeevk95"
-    IMAGE_NAME = "springboot-demo"
+    IMAGE_NAME = "springboot-fluentbit"
     IMAGE_TAG = "${BUILD_NUMBER}"
 
   }
   stages {
 
-    stage('Test Maven') {
+    stage(' Maven') {
       steps {
         container('maven') {
           sh 'mvn clean package -DskipTests'
@@ -26,7 +26,7 @@ environment {
     }
 
 
-    stage('Test kaniko') {
+    stage(' kaniko') {
       steps {
         container('kaniko') {
           sh '''
@@ -40,7 +40,7 @@ environment {
         }
       }
     }
-    stage('Test Helm') {
+    stage(' Helm') {
       steps {
         container('helm') {
           
